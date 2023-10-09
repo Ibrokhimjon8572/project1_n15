@@ -1,9 +1,11 @@
 from django.db import models
 import uuid
+from users.models import Profile
 
 class Project(models.Model):
     id  = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
     title = models.CharField(max_length=200)
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     project_image = models.ImageField(null=True, blank=True, default='testlogo.png')
     demo_link = models.CharField(max_length=2000, null=True, blank=True)

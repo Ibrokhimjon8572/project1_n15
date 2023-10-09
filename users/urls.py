@@ -1,12 +1,13 @@
 from django.urls import path
-from .views import profiles
+from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 
 
 urlpatterns = [
-    path('', profiles, name='profiles'),
+    path('', views.profiles, name='profiles'),
+    path('profile/<str:pk>/', views.profile, name='profile'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -10,6 +10,7 @@ class Profile(models.Model):
     email = models.CharField(max_length=300, null=True, blank=True)
     username = models.CharField(max_length=300, null=True, blank=True)
     headline = models.CharField(max_length=300, null=True, blank=True)
+    short_intro = models.CharField(max_length=200, null=True, blank=True)
     bio = models.CharField(max_length=300, null=True, blank=True)
     location = models.CharField(max_length=300, null=True, blank=True)
     profile_image = models.ImageField(null=True, blank=True, default='profiles/defaultprofileimage.png', upload_to='profiles/')
